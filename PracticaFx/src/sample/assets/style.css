@@ -1,0 +1,238 @@
+
+.admin_log {
+	-fx-background-color: #8C15B7;
+}
+
+
+
+
+.login_field {
+		-fx-outline:none;
+		-fx-border:none;
+		-fx-border-width: 0 0 2px 0;
+		-fx-focus-color:#22c4ff;
+	}
+
+
+.login_btn{
+	-fx-background-color:#CF5C36;
+}
+
+.login_btn:hover {
+	-fx-background-color :#73321C;
+	-fx-opacity:0.6;
+	-fx-text-fill:#22c4ff;
+}
+
+#usr{
+	-fx-background-color :#701192;
+}
+
+.login_field.jfx-text-field{
+ -fx-prompt-text-fill: #182025;
+ -jfx-focus-color: #22c4ff;
+}
+
+.login_field.jfx-password-field{
+	-jfx-focus-color: #22c4ff;
+	-fx-prompt-text-fill: #182025;
+}
+
+.login_field.text-input{
+	-fx-text-fill:#000000;
+	-fx-font-size:14;
+}
+
+
+.login_field.text-field:focused{
+	-fx-focus-color: #039ED3;
+-fx-faint-focus-color: #039ED322;
+}
+
+.menu-panel{
+-fx-background-color:#380849;
+}
+
+
+
+.label_menu{
+	-fx-border-width:0 0 2px 0;
+	-fx-border-color :#F2DAFB;
+	-fx-text-fill:#F2DAFB;
+}
+
+
+.text_font{
+	-fx-font-family:"Trebuchet MS";
+	-fx-font-size: 20;
+	-fx-text-fill:#F2DAFB;
+}
+
+#logout{
+	-fx-border-width:2px 0 0 0 ;
+	-fx-border-color :#F2DAFB;
+}
+.menu-button{
+	-fx-background-color:rgb(0, 0, 0, 0);
+}
+.text_font .label .text {
+ -fx-fill:#F2DAFB;
+}
+.menu-button.label{
+	-fx-fill:white;
+}
+
+.menu-button:hover ,.menu_btn:hover{
+	-fx-background-color:rgba(0, 0,0, 0.4);
+}
+
+
+ .menu-button > .arrow-button, .menu-button > .arrow-button > .arrow { -fx-padding: 0; }}
+
+
+
+.menu-item .label {
+    -fx-text-fill: white;
+}
+
+.menu-item:focused {
+     -fx-background-color: darkgray;
+}
+
+.menu-item:focused .label {
+    -fx-text-fill: blue;
+}
+
+.context-menu {
+
+    -fx-background-color: black;
+    -fx-background-insets: 0, 1, 2;
+    -fx-background-radius: 0 6 6 6, 0 5 5 5, 0 4 4 4;
+/*    -fx-padding: 0.666667em 0.083333em 0.666667em 0.083333em;  8 1 8 1 */
+    -fx-padding: 0.333333em 0.083333em 0.666667em 0.083333em; /* 4 1 8 1 */
+}
+
+ .menu-item:hover, .menu-item:focused {
+ -fx-background-color: derive(rgba(37, 40, 45, 1), -20%);
+ }
+
+
+
+.search_field.jfx-text-field{
+ -jfx-focus-color: #F2DAFB;
+ -fx-prompt-text-fill: #182025;
+}
+
+
+
+
+
+
+.search_field.text-field:focused{
+	-fx-focus-color: #F2DAFB;
+-fx-faint-focus-color: #F2DAFB;
+}
+
+
+#date ,.date-picker{
+	/*-fx-focus-color:red;*/
+	/*-fx-outer-border:black;
+	*/
+	-fx-background-color:rgba(0,0,0,0);
+
+
+}
+.date_field:editable .date-picker-display-node{
+	-fx-control-inner-background:rgba(0,0,0,0);
+}
+
+.combo-box-base:editable > .text-field,
+.date-picker > .text-field {
+   
+    /*-fx-padding: 0px;*/
+    -fx-background-color:rgba(0,0,0,0);
+   	-fx-border-width:0 0 2px 0;
+    -fx-border-color :#F2DAFB;
+    -fx-font-family:"Trebuchet MS";
+	-fx-font-size: 15;
+	-fx-text-fill:#F2DAFB;
+	-fx-padding:0;
+	-fx-margin:0;
+
+}
+
+.combo-box-base:editable > .text-field,
+.date-picker > .text-field:focused{
+   
+    /*-fx-padding: 0px;*/
+    -fx-background-color:rgba(0,0,0,0);
+   	-fx-border-width:0 0 2px 0;
+    -fx-border-color :black;
+    -fx-font-family:"Trebuchet MS";
+	-fx-font-size: 15;
+	-fx-text-fill:#F2DAFB;
+	-fx-padding:0;
+	-fx-margin:0;
+
+}
+
+.date_field:editable .arrow-button{
+	-fx-body-color:rgba(0,0,0,0);
+	-fx-inner-border:rgba(0,0,0,0.4);
+	-fx-outer-border:transparent;
+}
+
+/* other fields*/
+
+.other_fields.jfx-text-field{
+ -jfx-focus-color: #F2DAFB;
+ -fx-prompt-text-fill: rgba(24, 32, 37, 0.5);
+}
+
+
+.other_fields.text-field:focused{
+	-fx-focus-color: #F2DAFB;
+-fx-faint-focus-color: #F2DAFB;
+}
+.other_fields.jfx-password-field{
+ -jfx-focus-color: #F2DAFB;
+ -fx-prompt-text-fill: rgba(24, 32, 37, 0.5);
+}
+
+
+.other_fields.password-field:focused{
+	-fx-focus-color: #F2DAFB;
+-fx-faint-focus-color: #F2DAFB;
+}
+
+.combo-box,
+.choice-box {
+    -fx-prompt-text-fill: black;
+    -fx-text-fill: black;
+    -fx-background-color: none;
+}
+.other_fields.jfx-combo-box:focused{
+	-jfx-prompt-text-fill:#F2DAFB;
+	-jfx-focus-color:#F2DAFB;
+	-jfx-faint-focus-color: #F2DAFB;
+
+}
+.other_fields.jfx-combo-box:armed{
+	-jfx-prompt-text-fill:#F2DAFB;
+	-jfx-focus-color:#F2DAFB;
+	-jfx-faint-focus-color: #F2DAFB;
+}
+.combo-box .list-cell:filled:selected .text,
+.choice-box .list-cell:filled:selected .text {
+    -fx-fill: #F2DAFB;
+}
+
+.combo-box .arrow,
+.choice-box .arrow {
+    -fx-background-color: #4d4d4d;   
+}
+
+.glass{
+	-fx-background-color: rgba(0, 100, 100, 0.0);
+	 -fx-background-radius: 10;
+}

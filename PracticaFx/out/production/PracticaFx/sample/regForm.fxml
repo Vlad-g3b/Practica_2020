@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="606.0" prefWidth="435.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.RegForm">
+   <children>
+      <Pane layoutX="68.0" layoutY="-120.0" prefHeight="606.0" prefWidth="435.0" styleClass="admin_log" stylesheets="@assets/style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <JFXTextField fx:id="email_r" focusColor="#22c4ff" labelFloat="true" layoutX="150.0" layoutY="123.0" promptText="email" styleClass="login_field">
+               <font>
+                  <Font name="Trebuchet MS" size="12.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField fx:id="first_n" labelFloat="true" layoutX="150.0" layoutY="194.0" promptText="first name" styleClass="login_field">
+               <font>
+                  <Font name="Trebuchet MS" size="12.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField fx:id="last_n" labelFloat="true" layoutX="150.0" layoutY="266.0" promptText="last name" styleClass="login_field">
+               <font>
+                  <Font name="Trebuchet MS" size="12.0" />
+               </font>
+            </JFXTextField>
+            <JFXPasswordField fx:id="pass_r" labelFloat="true" layoutX="150.0" layoutY="347.0" promptText="password" styleClass="login_field">
+               <font>
+                  <Font name="Trebuchet MS" size="12.0" />
+               </font>
+            </JFXPasswordField>
+            <JFXPasswordField fx:id="conf_pass" labelFloat="true" layoutX="150.0" layoutY="421.0" promptText="confrim password" styleClass="login_field" />
+            <JFXButton fx:id="reg_close_btn" buttonType="RAISED" layoutX="405.0" layoutY="-2.0" onAction="#reg_close_btnIsPushed" styleClass="close_btn" text="X">
+               <font>
+                  <Font name="Bauhaus 93" size="17.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="reg_btn" layoutX="176.0" layoutY="515.0" onAction="#reg_btnIsPushed" prefHeight="25.0" prefWidth="91.0" styleClass="login_btn" text="Register">
+               <font>
+                  <Font name="Trebuchet MS" size="18.0" />
+               </font>
+            </JFXButton>
+            <Label fx:id="error" alignment="CENTER" layoutX="52.0" layoutY="50.0" prefHeight="43.0" prefWidth="324.0" textFill="#ff7a7a">
+               <font>
+                  <Font name="Trebuchet MS" size="15.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

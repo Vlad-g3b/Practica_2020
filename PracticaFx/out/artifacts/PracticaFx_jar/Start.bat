@@ -1,0 +1,1 @@
+java --module-path "F:\tools\javafx-sdk-11.0.2\lib" --add-modules javafx.controls,javafx.fxml -jar PracticaFx.jar

@@ -1,0 +1,720 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXToggleButton?>
+<?import java.lang.String?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="500.0" prefWidth="1000.0" stylesheets="@assets/style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.adminScreen">
+   <children>
+      <GridPane layoutX="58.0" layoutY="270.0" prefHeight="500.0" prefWidth="1000.0" stylesheets="@assets/style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="295.0" minWidth="10.0" prefWidth="160.0" />
+          <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="465.0" minHeight="10.0" prefHeight="465.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="194.0" minHeight="10.0" prefHeight="41.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label fx:id="info" prefHeight="20.0" prefWidth="313.0" />
+            <Pane fx:id="menu" focusTraversable="true" prefHeight="396.0" prefWidth="190.0" styleClass="menu-panel" stylesheets="@assets/style.css" GridPane.rowSpan="2">
+               <children>
+                  <JFXButton id="logout" fx:id="back" layoutY="410.0" onAction="#backIsPushed" prefHeight="42.0" prefWidth="153.0" text="Logout">
+                     <styleClass>
+                        <String fx:value="menu_btn" />
+                        <String fx:value="text_font" />
+                     </styleClass>
+                  </JFXButton>
+                  <JFXButton fx:id="test" layoutY="102.0" onAction="#testIsPushed" prefHeight="42.0" prefWidth="153.0" text="Search">
+                     <styleClass>
+                        <String fx:value="menu_btn" />
+                        <String fx:value="text_font" />
+                     </styleClass>
+                  </JFXButton>
+                  <Label fx:id="Menu" alignment="CENTER" layoutX="-3.0" prefHeight="58.0" prefWidth="160.0" styleClass="label_menu" text="Menu">
+                     <font>
+                        <Font name="Trebuchet MS" size="30.0" />
+                     </font>
+                  </Label>
+                  <MenuButton fx:id="insert" alignment="CENTER" contentDisplay="CENTER" layoutX="-3.0" layoutY="143.0" mnemonicParsing="false" popupSide="RIGHT" prefHeight="42.0" prefWidth="160.0" styleClass="text_font" stylesheets="@assets/style.css" text="Insert">
+                     <items>
+                        <MenuItem fx:id="insert_trip" mnemonicParsing="false" onAction="#insert_tripIsPushed" text="trip" />
+                        <MenuItem fx:id="insert_train" mnemonicParsing="false" onAction="#insert_trainIsPushed" text="train" />
+                        <MenuItem fx:id="insert_promotion" mnemonicParsing="false" onAction="#insert_promoIsPushed" text="promotions" />
+                     </items>
+                  </MenuButton>
+                  <MenuButton fx:id="change" alignment="CENTER" layoutX="-3.0" layoutY="183.0" mnemonicParsing="false" popupSide="RIGHT" prefHeight="20.0" prefWidth="160.0" styleClass="text_font" text="Modify">
+                    <items>
+                      <MenuItem fx:id="change_trip12" mnemonicParsing="false" onAction="#change_tripIsPushed" text="trip" />
+                      <MenuItem fx:id="change_train12" mnemonicParsing="false" onAction="#change_trainIsPushed" text="train" />
+                        <MenuItem fx:id="change_promotion12" mnemonicParsing="false" onAction="#change_promoIsPushed" text="promotions" />
+                    </items>
+                  </MenuButton>
+                  <JFXButton fx:id="home_btn" layoutY="60.0" onAction="#home_btnIsPushed" prefHeight="39.0" prefWidth="153.0" text="Home">
+                     <styleClass>
+                        <String fx:value="text_font" />
+                        <String fx:value="menu_btn" />
+                     </styleClass>
+                  </JFXButton>
+                  <JFXButton fx:id="logoutexit" layoutY="452.0" onAction="#logoutexitIsPushed" prefHeight="42.0" prefWidth="153.0" text="Exit">
+                     <styleClass>
+                        <String fx:value="menu_btn" />
+                        <String fx:value="text_font" />
+                     </styleClass>
+                  </JFXButton>
+               </children>
+            </Pane>
+            <Pane fx:id="search_pane" focusTraversable="true" prefHeight="572.0" prefWidth="796.0" styleClass="admin_log" GridPane.columnIndex="1" GridPane.rowSpan="2">
+               <children>
+                  <TableView fx:id="progview" layoutY="168.0" onMouseClicked="#onMouseClicked" prefHeight="331.0" prefWidth="847.0" tableMenuButtonVisible="true">
+                    <columns>
+                        <TableColumn fx:id="etd_col" prefWidth="94.0" text="ETD" />
+                        <TableColumn fx:id="eta_col" prefWidth="108.0" text="ETA" />
+                        <TableColumn fx:id="price_col" prefWidth="101.0" text="Price" />
+                        <TableColumn fx:id="train_col" prefWidth="123.0" text="Train" />
+                    </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                  </TableView>
+                  <JFXTextField fx:id="from" labelFloat="true" layoutX="14.0" layoutY="54.0" promptText="From:" visible="false">
+                     <styleClass>
+                        <String fx:value="text_font" />
+                        <String fx:value="search_field" />
+                     </styleClass></JFXTextField>
+                  <JFXTextField fx:id="to" labelFloat="true" layoutX="272.0" layoutY="54.0" promptText="To:" visible="false">
+                     <styleClass>
+                        <String fx:value="text_font" />
+                        <String fx:value="search_field" />
+                     </styleClass>
+                  </JFXTextField>
+                  <JFXButton fx:id="search" layoutX="367.0" layoutY="113.0" onAction="#searchIsPushed" styleClass="text_font" text="Search">
+                     <graphic>
+                        <ImageView fitHeight="22.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@assets/icons8-search-64.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+                  <DatePicker id="date" fx:id="date" layoutX="552.0" layoutY="54.0" onAction="#date_IsSelected" prefHeight="39.0" prefWidth="227.0" promptText="Date:" styleClass="date_field" />
+                  <JFXComboBox fx:id="from_combo" labelFloat="true" layoutX="19.0" layoutY="54.0" onAction="#from_comboIsSelected" prefHeight="25.0" prefWidth="199.0" promptText="From:">
+                     <styleClass>
+                        <String fx:value="text_font" />
+                        <String fx:value="other_fields" />
+                     </styleClass>
+                  </JFXComboBox>
+                  <JFXComboBox fx:id="to_combo" labelFloat="true" layoutX="277.0" layoutY="54.0" onAction="#to_comboIsSelected" prefHeight="39.0" prefWidth="204.0" promptText="To:">
+                     <styleClass>
+                        <String fx:value="text_font" />
+                        <String fx:value="other_fields" />
+                     </styleClass>
+                  </JFXComboBox>
+                  <JFXToggleButton fx:id="toggle" layoutX="726.0" layoutY="34.0" minHeight="-Infinity" minWidth="-Infinity" onAction="#toggleAction" prefHeight="20.0" prefWidth="53.0" />
+                  <JFXButton fx:id="reserve" layoutX="19.0" layoutY="113.0" onAction="#reserveIsPushed" text="Reserve">
+                     <styleClass>
+                        <String fx:value="menu_btn" />
+                        <String fx:value="text_font" />
+                     </styleClass>
+                  </JFXButton>
+               </children>
+            </Pane>
+            <AnchorPane fx:id="trip" prefHeight="396.0" prefWidth="732.0" visible="false" GridPane.columnIndex="1" GridPane.rowSpan="2">
+               <children>
+                  <GridPane prefHeight="500.0" prefWidth="847.0" styleClass="admin_log" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="541.0" minWidth="10.0" prefWidth="241.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="663.0" minWidth="10.0" prefWidth="606.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints maxHeight="236.0" minHeight="9.0" prefHeight="53.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="407.0" minHeight="10.0" prefHeight="407.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="310.0" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="41.0" prefWidth="179.0" style="-fx-font-size: 28;" styleClass="text_font" text="Add new Trip" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                        <GridPane GridPane.rowIndex="1">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                              <RowConstraints maxHeight="97.0" minHeight="0.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="9.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="67.0" minHeight="10.0" prefHeight="56.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="103.0" minHeight="10.0" prefHeight="59.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <JFXTextField fx:id="trip_etd_field" alignment="CENTER" labelFloat="true" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="39.0" prefWidth="365.0" promptText="E.T. of Departure" GridPane.halignment="CENTER" GridPane.hgrow="SOMETIMES" GridPane.valignment="CENTER" GridPane.vgrow="SOMETIMES">
+                                 <styleClass>
+                                    <String fx:value="text_font" />
+                                    <String fx:value="other_fields" />
+                                 </styleClass>
+                              </JFXTextField>
+                              <JFXTextField fx:id="trip_id_train_field" alignment="CENTER" labelFloat="true" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="365.0" promptText="Train id" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="4" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
+                                 <styleClass>
+                                    <String fx:value="text_font" />
+                                    <String fx:value="other_fields" />
+                                 </styleClass>
+                              </JFXTextField>
+                              <JFXTextField fx:id="trip_eta_field" alignment="CENTER" labelFloat="true" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="39.0" prefWidth="365.0" promptText="E.T. of Arival" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
+                                 <styleClass>
+                                    <String fx:value="text_font" />
+                                    <String fx:value="other_fields" />
+                                 </styleClass>
+                              </JFXTextField>
+                              <JFXTextField fx:id="trip_std_field" alignment="CENTER" labelFloat="true" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="365.0" promptText="Departure station" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
+                                 <styleClass>
+                                    <String fx:value="text_font" />
+                                    <String fx:value="other_fields" />
+                                 </styleClass>
+                              </JFXTextField>
+                              <JFXTextField fx:id="trip_sta_field" alignment="CENTER" labelFloat="true" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="365.0" promptText="Arrival station" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="3" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
+                                 <styleClass>
+                                    <String fx:value="text_font" />
+                                    <String fx:value="other_fields" />
+                                 </styleClass>
+                              </JFXTextField>
+                              <DatePicker fx:id="trip_date_field" editable="false" prefHeight="41.0" prefWidth="216.0" promptText="Date:" styleClass="date_field" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
+                           </children>
+                        </GridPane>
+                        <GridPane GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.rowSpan="2">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints maxHeight="345.0" minHeight="10.0" prefHeight="302.0" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="50.0" minHeight="9.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="50.0" minHeight="0.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <JFXButton alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#add_tripIsPushed" text="Add one" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                                 <styleClass>
+                                    <String fx:value="text_font" />
+                                    <String fx:value="menu_btn" />
+                                 </styleClass>
+                              </JFXButton>
+                              <JFXButton alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#import_tripIsPushed" text="Import csv" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                 <styleClass>
+                                    <String fx:value="text_font" />
+                                    <String fx:value="menu_btn" />
+                                 </styleClass>
+                              </JFXButton>
+                              <TableView fx:id="trip_table" prefHeight="200.0" prefWidth="200.0">
+                                <columns>
+                                    <TableColumn fx:id="table_train_id_col" prefWidth="56.0" text="Train id" />
+                                  <TableColumn fx:id="table_std_col" prefWidth="118.0" text="From" />
+                                  <TableColumn fx:id="table_sta_col" prefWidth="111.0" text="To" />
+                                    <TableColumn fx:id="table_etd_col" prefWidth="103.0" text="ETD" />
+                                    <TableColumn fx:id="table_eta_col" prefWidth="97.0" text="ETA" />
+                                    <TableColumn fx:id="table_date_col" prefWidth="120.0" text="Date" />
+                                </columns>
+                              </TableView>
+                           </children>
+                        </GridPane>
+                     </children>
+                  </GridPane>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="train" prefHeight="396.0" prefWidth="732.0" visible="false" GridPane.columnIndex="1" GridPane.rowSpan="2">
+               <children>
+                  <GridPane prefHeight="500.0" prefWidth="847.0" styleClass="admin_log" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="541.0" minWidth="10.0" prefWidth="229.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="649.0" minWidth="10.0" prefWidth="618.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints maxHeight="236.0" minHeight="9.0" prefHeight="53.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="407.0" minHeight="10.0" prefHeight="364.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="310.0" minHeight="10.0" prefHeight="83.0" vgrow="SOMETIMES" />
+                        <RowConstraints />
+                     </rowConstraints>
+                     <children>
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="41.0" prefWidth="187.0" style="-fx-font-size: 28;" styleClass="text_font" text="Add new Train" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                        <GridPane prefHeight="372.0" prefWidth="229.0" GridPane.rowIndex="1">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints maxHeight="1.7976931348623157E308" minHeight="0.0" vgrow="ALWAYS" />
+                              <RowConstraints maxHeight="1.7976931348623157E308" minHeight="9.0" vgrow="ALWAYS" />
+                              <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" vgrow="ALWAYS" />
+                              <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" vgrow="ALWAYS" />
+                              <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" vgrow="ALWAYS" />
+                           </rowConstraints>
+                           <children>
+                              <JFXTextField fx:id="add_type_field" alignment="CENTER" labelFloat="true" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="39.0" prefWidth="365.0" promptText="Train Type" GridPane.halignment="CENTER" GridPane.hgrow="SOMETIMES" GridPane.valignment="CENTER" GridPane.vgrow="SOMETIMES">
+                                 <styleClass>
+                                    <String fx:value="text_font" />
+                                    <String fx:value="other_fields" />
+                                 </styleClass>
+                              </JFXTextField>
+                              <JFXTextField fx:id="add_cls1_field" alignment="CENTER" labelFloat="true" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="39.0" prefWidth="365.0" promptText="Max.Number of seats (I)" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
+                                 <styleClass>
+                                    <String fx:value="text_font" />
+                                    <String fx:value="other_fields" />
+                                 </styleClass>
+                              </JFXTextField>
+                              <JFXTextField fx:id="add_cls2_field" alignment="CENTER" labelFloat="true" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="365.0" promptText="Max.Number of seats(II)" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
+                                 <styleClass>
+                                    <String fx:value="text_font" />
+                                    <String fx:value="other_fields" />
+                                 </styleClass>
+                              </JFXTextField>
+                              <JFXTextField fx:id="add_train_id_field" alignment="CENTER" labelFloat="true" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="365.0" promptText="Train id" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="3" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
+                                 <styleClass>
+                                    <String fx:value="text_font" />
+                                    <String fx:value="other_fields" />
+                                 </styleClass>
+                              </JFXTextField>
+                              <JFXToggleButton fx:id="status_toggle" contentDisplay="RIGHT" styleClass="text_font" text="Status" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
+                           </children>
+                        </GridPane>
+                        <GridPane GridPane.rowIndex="2" GridPane.rowSpan="2">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints maxHeight="50.0" minHeight="9.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="50.0" minHeight="0.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <JFXButton alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#add_trainIsPushed" text="Add one" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                                 <styleClass>
+                                    <String fx:value="text_font" />
+                                    <String fx:value="menu_btn" />
+                                 </styleClass>
+                              </JFXButton>
+                              <JFXButton alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#import_trainIsPushed" prefHeight="39.0" prefWidth="154.0" text="Import csv" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                                 <styleClass>
+                                    <String fx:value="text_font" />
+                                    <String fx:value="menu_btn" />
+                                 </styleClass>
+                              </JFXButton>
+                           </children>
+                        </GridPane>
+                        <TableView fx:id="table_train" prefHeight="200.0" prefWidth="200.0" tableMenuButtonVisible="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                          <columns>
+                            <TableColumn fx:id="train_id_col" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="78.0" text="ID" />
+                            <TableColumn fx:id="train_type_col" maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="138.0" text="Type" />
+                              <TableColumn fx:id="max_c1_col" maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="143.0" text="Max.Nr.(I)" />
+                              <TableColumn fx:id="max_c2_col" maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="132.0" text="Max.Nr.(II)" />
+                              <TableColumn fx:id="train_status_col" prefWidth="114.0" text="Status" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </GridPane>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="promo" prefHeight="396.0" prefWidth="732.0" visible="false" GridPane.columnIndex="1" GridPane.rowSpan="2">
+               <children>
+                  <GridPane prefHeight="500.0" prefWidth="847.0" styleClass="admin_log" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="541.0" minWidth="10.0" prefWidth="189.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="635.0" minWidth="10.0" prefWidth="635.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints maxHeight="236.0" minHeight="9.0" prefHeight="53.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="407.0" minHeight="10.0" prefHeight="407.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="310.0" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                        <RowConstraints />
+                     </rowConstraints>
+                     <children>
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="41.0" prefWidth="257.0" style="-fx-font-size: 28;" styleClass="text_font" text="Add new Promotion" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                        <GridPane GridPane.rowIndex="1">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints maxHeight="97.0" minHeight="0.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="9.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="67.0" minHeight="10.0" prefHeight="56.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="103.0" minHeight="10.0" prefHeight="59.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <JFXTextField fx:id="promo_type" alignment="CENTER" labelFloat="true" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="39.0" prefWidth="365.0" promptText="Promotion Type" GridPane.halignment="CENTER" GridPane.hgrow="SOMETIMES" GridPane.valignment="CENTER" GridPane.vgrow="SOMETIMES">
+                                 <styleClass>
+                                    <String fx:value="text_font" />
+                                    <String fx:value="other_fields" />
+                                 </styleClass>
+                              </JFXTextField>
+                              <JFXTextField fx:id="promo_amount" alignment="CENTER" labelFloat="true" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="39.0" prefWidth="365.0" promptText="promo. amount (%)" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
+                                 <styleClass>
+                                    <String fx:value="text_font" />
+                                    <String fx:value="other_fields" />
+                                 </styleClass>
+                              </JFXTextField>
+                           </children>
+                        </GridPane>
+                        <GridPane GridPane.rowIndex="2" GridPane.rowSpan="2">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints maxHeight="50.0" minHeight="0.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <JFXButton fx:id="add_promo" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#add_promoIsPushed" text="Add one" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                                 <styleClass>
+                                    <String fx:value="text_font" />
+                                    <String fx:value="menu_btn" />
+                                 </styleClass>
+                              </JFXButton>
+                           </children>
+                        </GridPane>
+                        <TableView fx:id="promotion" prefHeight="200.0" prefWidth="200.0" tableMenuButtonVisible="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                          <columns>
+                            <TableColumn fx:id="promo_type_col" editable="false" maxWidth="1.7976931348623157E308" prefWidth="315.0" resizable="false" text="Type" />
+                            <TableColumn fx:id="amount_col" editable="false" maxWidth="1.7976931348623157E308" prefWidth="315.0" resizable="false" text="amount (%)" />
+                          </columns>
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                        </TableView>
+                     </children>
+                  </GridPane>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="change_trip" prefHeight="200.0" prefWidth="200.0" visible="false" GridPane.columnIndex="1" GridPane.rowSpan="2">
+               <children>
+                  <GridPane layoutX="439.0" layoutY="229.0" prefHeight="500.0" prefWidth="847.0" styleClass="admin_log" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="763.0" minWidth="10.0" prefWidth="258.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="749.0" minWidth="10.0" prefWidth="589.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints maxHeight="50.0" minHeight="0.0" prefHeight="54.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="432.0" minHeight="10.0" prefHeight="393.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="50.0" minHeight="0.0" prefHeight="49.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Label style="-fx-font-size: 28;" styleClass="text_font" text="Modify Trip" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                        <TableView fx:id="trip_table1" onMouseClicked="#mod_clicked_trip" prefHeight="200.0" prefWidth="200.0" tableMenuButtonVisible="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <columns>
+                              <TableColumn fx:id="table_train_id_col1" prefWidth="56.0" text="Train id" />
+                              <TableColumn fx:id="table_std_col1" prefWidth="118.0" text="From" />
+                              <TableColumn fx:id="table_sta_col1" prefWidth="111.0" text="To" />
+                              <TableColumn fx:id="table_etd_col1" prefWidth="103.0" text="ETD" />
+                              <TableColumn fx:id="table_eta_col1" prefWidth="70.0" text="ETA" />
+                              <TableColumn fx:id="table_date_col1" prefWidth="120.0" text="Date" />
+                           </columns>
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                        </TableView>
+                        <GridPane GridPane.rowIndex="1" GridPane.rowSpan="2">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints maxHeight="97.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="97.0" minHeight="0.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="9.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="67.0" minHeight="10.0" prefHeight="56.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="103.0" minHeight="10.0" prefHeight="59.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <JFXTextField fx:id="trip_etd_field1" alignment="CENTER" labelFloat="true" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="39.0" prefWidth="365.0" promptText="E.T. of Departure" GridPane.halignment="CENTER" GridPane.hgrow="SOMETIMES" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="SOMETIMES">
+                                 <styleClass>
+                                    <String fx:value="text_font" />
+                                    <String fx:value="other_fields" />
+                                 </styleClass>
+                              </JFXTextField>
+                              <JFXTextField fx:id="trip_id_train_field1" alignment="CENTER" labelFloat="true" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="365.0" promptText="Train id" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="5" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
+                                 <styleClass>
+                                    <String fx:value="text_font" />
+                                    <String fx:value="other_fields" />
+                                 </styleClass>
+                              </JFXTextField>
+                              <JFXTextField fx:id="trip_eta_field1" alignment="CENTER" labelFloat="true" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="39.0" prefWidth="365.0" promptText="E.T. of Arival" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
+                                 <styleClass>
+                                    <String fx:value="text_font" />
+                                    <String fx:value="other_fields" />
+                                 </styleClass>
+                              </JFXTextField>
+                              <JFXTextField fx:id="trip_std_field1" alignment="CENTER" labelFloat="true" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="365.0" promptText="Departure station" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="3" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
+                                 <styleClass>
+                                    <String fx:value="text_font" />
+                                    <String fx:value="other_fields" />
+                                 </styleClass>
+                              </JFXTextField>
+                              <JFXTextField fx:id="trip_sta_field1" alignment="CENTER" labelFloat="true" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="365.0" promptText="Arrival station" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="4" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
+                                 <styleClass>
+                                    <String fx:value="text_font" />
+                                    <String fx:value="other_fields" />
+                                 </styleClass>
+                              </JFXTextField>
+                              <DatePicker fx:id="trip_date_field1" editable="false" prefHeight="41.0" prefWidth="216.0" promptText="Date:" styleClass="date_field" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER" />
+                              <JFXTextField fx:id="search_box_mod_trip" alignment="CENTER" labelFloat="true" onAction="#search_mod_tripIsPushed" promptText="Search box :">
+                                 <styleClass>
+                                    <String fx:value="text_font" />
+                                    <String fx:value="other_fields" />
+                                 </styleClass>
+                              </JFXTextField>
+                           </children>
+                        </GridPane>
+                        <JFXButton onAction="#modify_tripIsPushed" text="Modify" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                           <styleClass>
+                              <String fx:value="text_font" />
+                              <String fx:value="menu_btn" />
+                           </styleClass>
+                        </JFXButton>
+                     </children>
+                  </GridPane>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="change_train" prefHeight="396.0" prefWidth="732.0" visible="false" GridPane.columnIndex="1" GridPane.rowSpan="2">
+               <children>
+                  <GridPane prefHeight="500.0" prefWidth="847.0" styleClass="admin_log" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="541.0" minWidth="10.0" prefWidth="229.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="649.0" minWidth="10.0" prefWidth="618.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints maxHeight="236.0" minHeight="9.0" prefHeight="53.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="407.0" minHeight="10.0" prefHeight="364.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="310.0" minHeight="10.0" prefHeight="83.0" vgrow="SOMETIMES" />
+                        <RowConstraints />
+                     </rowConstraints>
+                     <children>
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="41.0" prefWidth="187.0" style="-fx-font-size: 28;" styleClass="text_font" text="Modify Train" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                        <GridPane prefHeight="372.0" prefWidth="229.0" GridPane.rowIndex="1">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="60.0" vgrow="ALWAYS" />
+                              <RowConstraints maxHeight="1.7976931348623157E308" minHeight="0.0" prefHeight="60.0" vgrow="ALWAYS" />
+                              <RowConstraints maxHeight="1.7976931348623157E308" minHeight="9.0" prefHeight="60.0" vgrow="ALWAYS" />
+                              <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="60.0" vgrow="ALWAYS" />
+                              <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="60.0" vgrow="ALWAYS" />
+                              <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="57.0" vgrow="ALWAYS" />
+                           </rowConstraints>
+                           <children>
+                              <JFXTextField fx:id="add_type_field1" alignment="CENTER" labelFloat="true" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="39.0" prefWidth="365.0" promptText="Train Type" GridPane.halignment="CENTER" GridPane.hgrow="SOMETIMES" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="SOMETIMES">
+                                 <styleClass>
+                                    <String fx:value="text_font" />
+                                    <String fx:value="other_fields" />
+                                 </styleClass>
+                              </JFXTextField>
+                              <JFXTextField fx:id="add_cls1_field1" alignment="CENTER" labelFloat="true" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="39.0" prefWidth="365.0" promptText="Max.Number of seats (I)" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
+                                 <styleClass>
+                                    <String fx:value="text_font" />
+                                    <String fx:value="other_fields" />
+                                 </styleClass>
+                              </JFXTextField>
+                              <JFXTextField fx:id="add_cls2_field1" alignment="CENTER" labelFloat="true" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="365.0" promptText="Max.Number of seats(II)" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="3" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
+                                 <styleClass>
+                                    <String fx:value="text_font" />
+                                    <String fx:value="other_fields" />
+                                 </styleClass>
+                              </JFXTextField>
+                              <JFXTextField fx:id="add_train_id_field1" alignment="CENTER" labelFloat="true" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="365.0" promptText="Train id" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="4" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
+                                 <styleClass>
+                                    <String fx:value="text_font" />
+                                    <String fx:value="other_fields" />
+                                 </styleClass>
+                              </JFXTextField>
+                              <JFXToggleButton fx:id="status_toggle1" contentDisplay="RIGHT" styleClass="text_font" text="Status" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
+                              <JFXTextField fx:id="search_box_mod_train" alignment="CENTER" labelFloat="true" promptText="Search box">
+                                 <styleClass>
+                                    <String fx:value="text_font" />
+                                    <String fx:value="other_fields" />
+                                 </styleClass>
+                              </JFXTextField>
+                           </children>
+                        </GridPane>
+                        <GridPane GridPane.rowIndex="2" GridPane.rowSpan="2">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints maxHeight="50.0" minHeight="9.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="50.0" minHeight="0.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <JFXButton alignment="CENTER" cache="true" cacheHint="SPEED" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#modify_trainIsPushed" text="Modify" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                                 <styleClass>
+                                    <String fx:value="text_font" />
+                                    <String fx:value="menu_btn" />
+                                 </styleClass>
+                              </JFXButton>
+                              <JFXButton alignment="CENTER" contentDisplay="CENTER" disable="true" onAction="#search1_mod_trainIsPushed" prefHeight="39.0" prefWidth="256.0" text="Search" visible="false" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                                 <styleClass>
+                                    <String fx:value="text_font" />
+                                    <String fx:value="menu_btn" />
+                                 </styleClass>
+                              </JFXButton>
+                           </children>
+                        </GridPane>
+                        <TableView fx:id="table_train1" onMouseClicked="#mod_clicked" prefHeight="200.0" prefWidth="200.0" tableMenuButtonVisible="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <columns>
+                              <TableColumn fx:id="train_id_col1" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="78.0" text="ID" />
+                              <TableColumn fx:id="train_type_col1" maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="138.0" text="Type" />
+                              <TableColumn fx:id="max_c1_col1" maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="143.0" text="Max.Nr.(I)" />
+                              <TableColumn fx:id="max_c2_col1" maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="132.0" text="Max.Nr.(II)" />
+                              <TableColumn fx:id="train_status_col1" prefWidth="114.0" text="Status" />
+                           </columns>
+                        </TableView>
+                     </children>
+                  </GridPane>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="change_promo" prefHeight="396.0" prefWidth="732.0" visible="false" GridPane.columnIndex="1" GridPane.rowSpan="2">
+               <children>
+                  <GridPane prefHeight="500.0" prefWidth="847.0" styleClass="admin_log" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="541.0" minWidth="10.0" prefWidth="189.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="635.0" minWidth="10.0" prefWidth="635.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints maxHeight="236.0" minHeight="9.0" prefHeight="53.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="407.0" minHeight="10.0" prefHeight="407.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="310.0" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                        <RowConstraints />
+                     </rowConstraints>
+                     <children>
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="41.0" prefWidth="257.0" style="-fx-font-size: 28;" styleClass="text_font" text="Modify Promotion" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                        <GridPane alignment="CENTER" GridPane.rowIndex="1">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints maxHeight="97.0" minHeight="0.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="9.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="67.0" minHeight="10.0" prefHeight="56.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="103.0" minHeight="10.0" prefHeight="59.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <JFXTextField fx:id="promo_type1" alignment="CENTER" labelFloat="true" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="39.0" prefWidth="365.0" promptText="Promotion Type" GridPane.halignment="CENTER" GridPane.hgrow="SOMETIMES" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="SOMETIMES">
+                                 <styleClass>
+                                    <String fx:value="text_font" />
+                                    <String fx:value="other_fields" />
+                                 </styleClass>
+                              </JFXTextField>
+                              <JFXTextField fx:id="promo_amount1" alignment="CENTER" labelFloat="true" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="39.0" prefWidth="365.0" promptText="promo. amount (%)" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
+                                 <styleClass>
+                                    <String fx:value="text_font" />
+                                    <String fx:value="other_fields" />
+                                 </styleClass>
+                              </JFXTextField>
+                              <JFXTextField fx:id="search_box_mod_promo" alignment="CENTER" labelFloat="true" onAction="#search_mod_promoIsPushed" promptText="Search box :">
+                                 <styleClass>
+                                    <String fx:value="text_font" />
+                                    <String fx:value="other_fields" />
+                                 </styleClass>
+                              </JFXTextField>
+                           </children>
+                        </GridPane>
+                        <GridPane GridPane.rowIndex="2" GridPane.rowSpan="2">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints maxHeight="50.0" minHeight="0.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <JFXButton alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#modify_promoIsPushed" text="Modify" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                                 <styleClass>
+                                    <String fx:value="text_font" />
+                                    <String fx:value="menu_btn" />
+                                 </styleClass>
+                              </JFXButton>
+                           </children>
+                        </GridPane>
+                        <TableView fx:id="mod_promotion" onMouseClicked="#mod_clicked_promo" prefHeight="200.0" prefWidth="200.0" tableMenuButtonVisible="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <columns>
+                              <TableColumn fx:id="promo_type_col1" editable="false" maxWidth="1.7976931348623157E308" prefWidth="315.0" resizable="false" text="Type" />
+                              <TableColumn fx:id="amount_col1" editable="false" maxWidth="1.7976931348623157E308" prefWidth="315.0" resizable="false" text="amount (%)" />
+                           </columns>
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                        </TableView>
+                     </children>
+                  </GridPane>
+               </children>
+            </AnchorPane>
+            <Pane fx:id="client_info" prefHeight="506.0" prefWidth="853.0" styleClass="admin_log" GridPane.columnIndex="1" GridPane.rowSpan="2">
+               <children>
+                  <GridPane alignment="CENTER" prefHeight="500.0" prefWidth="847.0">
+                    <columnConstraints>
+                      <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="514.0" minWidth="10.0" prefWidth="417.0" />
+                      <ColumnConstraints fillWidth="false" halignment="CENTER" hgrow="SOMETIMES" maxWidth="505.0" minWidth="10.0" prefWidth="286.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="505.0" minWidth="10.0" prefWidth="146.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints maxHeight="200.0" minHeight="10.0" prefHeight="150.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="95.0" minHeight="0.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="165.0" minHeight="0.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="288.0" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="230.0" minHeight="10.0" prefHeight="40.0" valignment="CENTER" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="230.0" minHeight="10.0" prefHeight="150.0" valignment="CENTER" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Label alignment="CENTER" prefHeight="58.0" prefWidth="859.0" styleClass="text_font" text="Client Info:" GridPane.columnSpan="3" />
+                        <Label alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="416.0" styleClass="text_font" text="Email:" GridPane.rowIndex="1" />
+                        <Label alignment="CENTER_RIGHT" prefHeight="37.0" prefWidth="416.0" styleClass="text_font" text="First Name:" GridPane.rowIndex="3" />
+                        <Label alignment="CENTER_RIGHT" prefHeight="50.0" prefWidth="416.0" styleClass="text_font" text="Last Name:" GridPane.rowIndex="2" />
+                        <JFXTextField fx:id="email_info" alignment="CENTER" prefHeight="39.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.hgrow="SOMETIMES" GridPane.rowIndex="1" GridPane.vgrow="SOMETIMES">
+                           <styleClass>
+                              <String fx:value="text_font" />
+                              <String fx:value="other_fields" />
+                           </styleClass>
+                        </JFXTextField>
+                        <JFXTextField fx:id="last_name_info" alignment="CENTER" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                           <styleClass>
+                              <String fx:value="other_fields" />
+                              <String fx:value="text_font" />
+                           </styleClass>
+                        </JFXTextField>
+                        <JFXTextField fx:id="first_name_info" alignment="CENTER" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                           <styleClass>
+                              <String fx:value="other_fields" />
+                              <String fx:value="text_font" />
+                           </styleClass>
+                        </JFXTextField>
+                        <JFXButton fx:id="update_info_btn" onAction="#update_info_btnIsPushed" prefHeight="39.0" prefWidth="192.0" text="Update Info" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER">
+                           <styleClass>
+                              <String fx:value="text_font" />
+                              <String fx:value="menu_btn" />
+                           </styleClass>
+                        </JFXButton>
+                        <Label fx:id="succes" alignment="CENTER" contentDisplay="BOTTOM" prefHeight="47.0" prefWidth="199.0" style="-fx-font-size: 30;" styleClass="text_font" text="Info Updated!" />
+                        <JFXButton fx:id="changePassword" alignment="CENTER" contentDisplay="CENTER" onAction="#changePasswordIsPushed" prefHeight="39.0" prefWidth="192.0" text="Change Password" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="4">
+                           <styleClass>
+                              <String fx:value="text_font" />
+                              <String fx:value="menu_btn" />
+                           </styleClass>
+                        </JFXButton>
+                     </children>
+                  </GridPane>
+               </children>
+            </Pane>
+         </children>
+      </GridPane>
+   </children>
+</AnchorPane>
